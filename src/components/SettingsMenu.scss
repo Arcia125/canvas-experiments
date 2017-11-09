@@ -1,8 +1,12 @@
 .settings-menu {
-  background: #dddfdf;
   color: #2f2f2f;
-  padding: 20rem 40rem;
-  display: flex;
   flex-direction: row;
   justify-content: center;
+  position: absolute;
+  .title {
+    position: relative;
+    top: 0;
+    left: 0;
+    user-select: none;
+  }
 }

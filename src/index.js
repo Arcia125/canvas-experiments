@@ -27,7 +27,8 @@ function init () {
     // };
     // const settingsButton = new Button("body", buttonSettings);
     // settingsButton.addEventListener("click", Settings.toggleDisplay);
-    // preact.render(<App />, document.querySelector(".app"));
+    preact.render(<App />, document.querySelector(".app"));
+
     initCircles(500);
     setInterval(update, 60);
     window.requestAnimationFrame(draw);

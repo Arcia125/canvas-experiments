@@ -1,26 +1,16 @@
 
 import preact, { Component } from "preact";
+import classNames from "classnames";
 
 import "./SettingsMenu.scss";
 
 class SettingsMenu extends Component {
 
 
-  toggleDisplay = () => {
-    this.isShown = !this.isShown;
-
-  }
-
-  show = () => {
-    this.settingsMenu
-  }
-
-  hide = () => {
-
-  }
-
-  render () {
-    return <div className="settings-menu">Settings Menu</div>
+  render ({}, {}) {
+    return <div className={classNames("settings-menu")}>
+        <h1 className="title">Settings Menu</h1>
+      </div>
   }
 
 

@@ -1,5 +1,6 @@
 
 import preact, { Component } from "preact";
+
 import "./SettingsButton.scss";
 
 class SettingsButton extends Component {

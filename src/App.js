@@ -2,19 +2,15 @@
 import preact, { Component } from "preact";
 
 import "./app.scss";
-import {
-  SettingsButton,
-  SettingsMenu,
-} from "./components";
+import { Settings } from "./containers";
 
 class App extends Component {
   render () {
-    return <div>
-      <SettingsButton />
-      <div className="settings-container">
-        <SettingsMenu />
+    return (
+      <div>
+        <Settings />
       </div>
-    </div>
+    );  
   }
 }
 
