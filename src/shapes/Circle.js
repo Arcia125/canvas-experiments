@@ -13,7 +13,7 @@ class Circle {
   constructor({
     x = getRandom(Canvas.width),
     y = getRandom(Canvas.height),
-    radius = getRandomRange(Canvas.height / 200, Canvas.height / 20),
+    radius = getRandomRange(10, 10 * 10),
     startAngle = 0,
     endAngle = 360,
     anticlockwise = false,
@@ -21,11 +21,11 @@ class Circle {
     xDir = getRandomDec(-10, 10),
     yDir = getRandomDec(-10, 10),
     speedLimit = 5,
-    // strokeStyle = getRandomRgba(),
+    accelerationMin = -1,
+    accelerationMax = 1,
   } = {}) {
     this.x = x;
     this.y = y;
-    // this.history = [{ x, y }];
     this.counter = 0;
     this.radius = radius;
     this.startAngle = startAngle;
@@ -35,7 +35,8 @@ class Circle {
     this.xDir = xDir;
     this.yDir = yDir;
     this.speedLimit = speedLimit;
-    // this.strokeStyle = strokeStyle;
+    this.accelerationMin = accelerationMin;
+    this.accelerationMax = accelerationMax;
   }
 
   draw = () => {
@@ -50,37 +51,14 @@ class Circle {
       anticlockwise,
       color,
       speedLimit,
-      // strokeStyle,
     } = this;
     ctx.fillStyle = color;
-    // ctx.strokeStyle = strokeStyle;
-    // ctx.rotate(1);
     
     ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);
     ctx.fill();
     ctx.beginPath();
     ctx.strokeStyle = color;
-    // if (this.history.length > 500) {
-    //   this.history.shift();
-      
-    // }
-    // let counter = 0;
-    // this.history.forEach(pos => {
-    //   if (counter < 1) {
-    //     counter++;
-    //     ctx.moveTo(pos.x, pos.y);
-    //     return;
-    //   }
-    //   if (pos.x <= 0 || pos.y <= 0 || pos.x >= Canvas.width || pos.y >= Canvas.height) {
-    //     ctx.stroke();
-    //     ctx.closePath();
-    //     ctx.beginPath();
-    //     return;
-    //   }
-    //   ctx.lineTo(pos.x, pos.y);
-    // });
-    // ctx.stroke();
-    // ctx.closePath();
+    ctx.closePath();
   }
 
   update = () => {
@@ -102,8 +80,10 @@ class Circle {
     } = this;
     this.x += xDir;
     this.y += yDir;
-    this.xDir += getRandomDec(-1, 1);
-    this.yDir += getRandomDec(-1, 1);
+    const accelerationMin = parseInt(this.accelerationMin);
+    const accelerationMax = parseInt(this.accelerationMax);
+    this.xDir += getRandomDec(accelerationMin, accelerationMax);
+    this.yDir += getRandomDec(accelerationMin, accelerationMax);
     const radiusChange = [-1, 1];
     this.setRadius(this.radius + getRandomDec(...radiusChange));
     if (this.x > width) {
@@ -130,7 +110,6 @@ class Circle {
     if (this.yDir < -speedLimit) {
       this.yDir = -speedLimit;
     }
-    // this.history.push({ x: this.x, y: this.y });
   }
   setRadius = radius => {
     this.radius = clampNumber(radius, 1, 500);

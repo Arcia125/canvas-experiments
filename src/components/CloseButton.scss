@@ -1,16 +1,12 @@
-
-.settings-button {
-  top: 1%;
-  right: 1%;
-  position: absolute;
-  background: none;
-  border: 5px solid white;
+.close-button {
+  background: #FF4466;
   border-radius: 15px;
   font-family: sans-serif;
   font-size: 2rem;
   user-select: none;
-  padding: 1rem 2rem;
+  padding: 1rem 1.5rem;
   color: white;
+  border: none;
   &:focus {
     outline: none;
   }

@@ -2,11 +2,41 @@
   color: #2f2f2f;
   flex-direction: row;
   justify-content: center;
-  position: absolute;
+  height: 100%;
+
   .title {
-    position: relative;
-    top: 0;
-    left: 0;
     user-select: none;
+    text-align: center;
+    margin: 2rem 0;
+    font-size: 3rem;
+  }
+  
+  .individual-settings-container {
+    height: 80%;
+    overflow-y: auto;
+    background-color: #CFCFCF;
+  }
+
+  .individual-settings-actions-container {
+    text-align: center;
+    padding: 1rem 2rem;
+    margin: 1rem;
+    height: 10%;
+    & button {
+      vertical-align: center;
+      $btnbgcolor: #0AAF55;
+      color: white;
+      background-color: $btnbgcolor;
+      border: none;
+      border-radius: 15px;
+      font-family: sans-serif;
+      font-size: 1.5rem;
+      user-select: none;
+      padding: 1rem 2rem;
+      &:focus {
+        outline: none;
+        // background: black;
+      }
+    }
   }
 }

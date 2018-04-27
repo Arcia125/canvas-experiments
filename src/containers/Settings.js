@@ -6,6 +6,7 @@ import "./Settings.scss";
 import {
   SettingsButton,
   SettingsMenu,
+  CloseButton,
 } from "../components";
 
 class Settings extends Component {
@@ -31,6 +32,7 @@ class Settings extends Component {
       <div className="settings">
         <SettingsButton onClick={this.toggleMenu}/>
         <div className={classNames("settings-container", { hidden: !isOpen })}>
+          <CloseButton onClick={this.closeMenu} />  
           <SettingsMenu onRequestClose={this.closeMenu} isOpen={isOpen} />
         </div>
       </div>

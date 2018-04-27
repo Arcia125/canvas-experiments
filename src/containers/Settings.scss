@@ -1,8 +1,15 @@
 .settings {
   color: #2f2f2f;
-  font-family: sans-serif; 
+  font-family: 'Roboto';
   .settings-container {
-    padding: 5rem 10rem;
-    background: #dddfdf;
+    background-color: #C0C0C0;
+    position: relative;
+    top: 5rem;
+    padding: 1rem 3rem 5rem 3rem;
+    .close-button {
+      position: absolute;
+      right: .5rem;
+      top: .5rem;
+    }
   }
 }
